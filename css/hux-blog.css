@@ -446,11 +446,13 @@ pre code {
 .intro-header .post-heading h1 {
   font-size: 30px;
   margin-bottom: 24px;
+  text-shadow: 1px 1px 3px #000;
 }
 .intro-header .post-heading .subheading,
 .intro-header .post-heading .meta {
   line-height: 1.1;
   display: block;
+  text-shadow: 1px 1px 3px #000;
 }
 .intro-header .post-heading .subheading {
   /* Hux learn from
@@ -477,12 +479,15 @@ pre code {
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
     font-size: 55px;
+    text-shadow: 1px 1px 3px #000;
   }
   .intro-header .post-heading .subheading {
     font-size: 30px;
+    text-shadow: 1px 1px 3px #000;
   }
   .intro-header .post-heading .meta {
     font-size: 20px;
+    text-shadow: 1px 1px 3px #000;
   }
 }
 .post-preview > a {
