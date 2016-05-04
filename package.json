@@ -1,9 +1,9 @@
 {
-    "name": "hux-blog",
-    "title": "Hux Blog",
+    "name": "wings27-blog",
+    "title": "Wings27 Blog",
     "version": "1.0.0",
-    "homepage": "http://huxpro.github.io",
-    "author": "Hux",
+    "homepage": "http://wings27.github.io",
+    "author": "wings27",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
@@ -13,10 +13,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Huxpro/huxpro.github.io"
+        "url": "https://github.com/wings27/wings27.github.io"
     },
     "scripts": {
         "preview": "cd _site; python -m SimpleHTTPServer 8020",
-        "watch": "grunt watch & npm run preview & jekyll serve -w;"
+        "watch": "grunt watch & npm run preview & jekyll serve -w;",
+        "test": "grunt --verbose"
     }
 }

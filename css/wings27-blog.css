@@ -1,6 +1,6 @@
 /*!
- * Hux Blog v1.0.0 (http://huxpro.github.io)
- * Copyright 2016 Hux
+ * Wings27 Blog v1.0.0 (http://wings27.github.io)
+ * Copyright 2016 wings27
  */
 
 @media (min-width: 1200px) {
@@ -411,7 +411,7 @@ pre code {
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading {
-    padding: 210px 0 350px 0;
+    padding: 210px 0 390px 0;
   }
 }
 .intro-header .site-heading,
