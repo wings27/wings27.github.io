@@ -1,3 +1,10 @@
+env:
+  global:
+  - ENCRYPTION_LABEL: 8bd2b4722152
+
 language: node_js
+node_js:
+- stable
 before_install: npm install -g grunt-cli
 install: npm install
+script: bash ./deploy.sh
