@@ -1,4 +1,4 @@
 #!/bin/bash
 
 grunt
-jekyll build -d out
+#rsync -a --exclude=out . out

@@ -1,9 +1,8 @@
-# HuxBlog Boilerplate
+# wings27 blog
+==============
 
-##### This is the boilerplate of [Hux Blog](https://github.com/Huxpro/huxpro.github.io), all documents is over there!
+[![Build Status](https://travis-ci.org/wings27/wings27.github.io.svg?branch=master)](https://travis-ci.org/wings27/wings27.github.io)
 
-#### [View Boilerplate &rarr;](http://huangxuan.me/huxblog-boilerplate/)
+## Introduction
 
-#### [View Live Hux Blog &rarr;](http://huangxuan.me)
-
-## If you like Hux Blog, Please star [huxpro.github.io repo](https://github.com/Huxpro/huxpro.github.io) instead of this! Thank you!
+Just a personal blog.

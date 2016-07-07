@@ -1,6 +1,6 @@
 env:
   global:
-  - ENCRYPTION_LABEL: 8bd2b4722152
+  - ENCRYPTION_LABEL: 43aad3c5286a
 
 language: node_js
 node_js:
