@@ -35,17 +35,22 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
+echo;
 echo "git diff:"
 git diff
 
 git add .
 pwd
+
+echo;
 echo "git status:"
 git status --short
 git commit -m "Committing to GitHub Pages: ${SHA}"
 
+echo;
 echo "git log:"
 git log -n 10 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
+echo;
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
