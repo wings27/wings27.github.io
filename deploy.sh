@@ -45,7 +45,7 @@ pwd
 echo;
 echo "git status:"
 git status --short
-git commit -m "Committing to GitHub Pages: ${SHA}"
+git commit -m "CI Commit: ${SHA}"
 
 echo;
 echo "git log:"
