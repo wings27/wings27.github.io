@@ -3,7 +3,7 @@
 set -e # Exit with nonzero exit code if anything fails
 
 SOURCE_BRANCH="master"
-TARGET_BRANCH="gh-pages"
+TARGET_BRANCH="master"
 
 function doCompile {
   chmod +x ./compile.sh
@@ -25,40 +25,27 @@ SHA=`git rev-parse --verify HEAD`
 git config remote.origin.fetch refs/heads/*:refs/remotes/origin/*
 git fetch --all
 
-pwd
-git status
-git log -n 5 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
-
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
-
-git status
-git log -n 5 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
 
 # Run our compile script
 doCompile
 
-git log -n 5 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-# If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if [ -z `git diff --exit-code` ]; then
-    echo "No changes to the output on this push; exiting."
-    exit 0
-fi
-
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-
+echo "git diff:"
 git diff
 
 git add .
-git commit -m "Deploy to GitHub Pages: ${SHA}"
-
-git log -n 5 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
-
 pwd
-git status
+echo "git status:"
+git status --short
+git commit -m "Committing to GitHub Pages: ${SHA}"
+
+echo "git log:"
+git log -n 10 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
