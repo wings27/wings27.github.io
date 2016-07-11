@@ -10,6 +10,8 @@ function doCompile {
   ./compile.sh
 }
 
+git --version
+
 # Pull requests and commits to other branches shouldn't try to deploy, just build to verify
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
     echo "Skipping deploy; just doing a build."
@@ -37,14 +39,21 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 # The delta will show diffs between new and old versions.
 echo;
 echo "git diff:"
-git diff
+git diff --exit-code
 
-git add .
+git add --all
 pwd
 
 echo;
 echo "git status:"
 git status --short
+
+if git diff --cached --quiet; then
+    git status
+	echo "No changes detected. Exiting..."
+	exit 0
+fi
+
 git commit -m "CI Commit: ${SHA}"
 
 echo;
