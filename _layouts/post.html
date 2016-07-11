@@ -53,7 +53,7 @@ layout: default
 
                 {% if site.duoshuo_share && site.duoshuo_username %}
                 <!-- 多说 Share start -->
-                </style>
+
                 <div class="ds-share"
                     style="text-align: right"
                     data-thread-key="{{page.id}}"
@@ -176,13 +176,17 @@ layout: default
 <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "{{site.disqus_username}}";
-    var disqus_identifier = "{{page.id}}";
-    var disqus_url = "{{site.url}}{{page.url}}";
+    var disqus_config = function () {
+        this.page.url = "{{site.url}}{{page.url}}";
+        this.page.identifier = "{{page.id}}";
+        this.page.title = "{{page.url}}";
+    };
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = '//' + "{{site.disqus_username}}" + '.disqus.com/embed.js';
+        dsq.setAttribute('data-timestamp', + new Date());
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
