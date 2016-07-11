@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "homepage": "http://wings27.github.io",
   "author": "wings27",
-  "dependencies": {
+  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-banner": "~0.2.3",
     "grunt-contrib-less": "~0.11.4",
