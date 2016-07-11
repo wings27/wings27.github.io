@@ -12,9 +12,9 @@ function doCompile {
 
 git --version
 
-# Pull requests and commits to other branches shouldn't try to deploy, just build to verify
+# Skipping deploy on pull requests and commits on other branches.
 if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]; then
-    echo "Skipping deploy; just doing a build."
+    echo "Build will be performed but won't deploy. Now building..."
     doCompile
     exit 0
 fi
@@ -32,19 +32,14 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 # Run our compile script
 doCompile
 
+# Git add & commit
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
-
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
 echo;
-echo "git diff:"
-git diff --exit-code
 
 git add --all
-pwd
-
 echo;
+
 echo "git status:"
 git status --short
 
@@ -54,14 +49,14 @@ if git diff --cached --quiet; then
 	exit 0
 fi
 
-git commit -m "CI Commit: ${SHA}"
+git commit -m "CI Commit: Based on ${SHA}"
 
 echo;
 echo "git log:"
 git log -n 10 --graph --pretty=oneline --abbrev-commit --decorate --date=relative
 echo;
 
-# Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
+# Get the deploy key through Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"
 ENCRYPTED_IV_VAR="encrypted_${ENCRYPTION_LABEL}_iv"
 ENCRYPTED_KEY=${!ENCRYPTED_KEY_VAR}
@@ -71,5 +66,5 @@ chmod 600 deploy_key
 eval `ssh-agent -s`
 ssh-add deploy_key
 
-# Now that we're all set up, we can push.
+# All set up. Push to remote.
 git push --verbose $SSH_REPO $TARGET_BRANCH
