@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+    grunt.util.linefeed = '\n';
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
