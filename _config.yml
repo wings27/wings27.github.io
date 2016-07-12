@@ -4,8 +4,8 @@ title: Wings27 Blog
 SEOTitle: Wings27 Blog | Practice makes perfect.
 header-img: img/home-bg.jpg
 email: wenqs27@gmail.com
-description: "test"
-keyword: ""
+description: "Practice makes perfect."
+keyword: "IT, Programmer, Blog, Wings27"
 url: "http://wings27.github.io"
 
 
@@ -45,7 +45,6 @@ kramdown:
 duoshuo_username: wings27blog
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
-
 
 
 
