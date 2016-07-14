@@ -9,6 +9,14 @@ tags:
     - javascript
 ---
 
+
+## 目录
+{:.no_toc}
+
+- toc
+{:toc}
+
+
 ## 问题
 
 多说分享插件有某些分享渠道显示为undefined，如图：
@@ -56,6 +64,7 @@ $(document).one('mouseover', 'li[data-toggle="ds-share-icons-more"]', function (
 
 另一个方案是选用unstable版的插件，已经修复了这个问题。但是unstable版不够稳定，而且取消了鼠标悬停的触发，个人不建议使用。
 
-#### 参考文献
+
+## 参考文献
 
 [^1]: [为什么我的多说分享插件，今天打开突然出现好多undefined？](http://dev.duoshuo.com/threads/56519db55ca0552a02d706b8)

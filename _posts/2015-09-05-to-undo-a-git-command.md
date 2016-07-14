@@ -15,18 +15,12 @@ To make things worse, they also provide a human-unreadable documentation as well
 So it's very common for beginners to leave a mess in the workspace after running a God-knows-what-it-means git command. Therefore I wrote this blog. Hopefully this could save you from clueless.
 
 ## Table of Contents
-<!-- MarkdownTOC -->
+{:.no_toc}
 
-- [The Cheat Sheet](#the-cheat-sheet)
-- [Remarks](#remarks)
-- [Reference](#reference)
-
-<!-- /MarkdownTOC -->
+- toc
+{:toc}
 
 
-<a name="the-cheat-sheet"></a>
-
-<a name="the-cheat-sheet"></a>
 ## The Cheat Sheet
 
 Some commonly used git commands are listed below, along with the corresponding commands to undo or fixup the mess.
@@ -41,9 +35,6 @@ The commands are labeled with numbers, and the remarks on some of the commands a
 | 5   | `git pull`          | `git reset HEAD@{1}`                 |
 | 6*  | `git push`          | `git push --force origin <refspec>`  |
 
-<a name="remarks"></a>
-
-<a name="remarks"></a>
 ## Remarks
 
 - 1\*: Works only when the commit is not an "orphan commit". [^3]
@@ -51,7 +42,6 @@ The commands are labeled with numbers, and the remarks on some of the commands a
 - 6\*: **Use with caution!** This may affect other people's work. If you don't know what you are doing, **DON'T** do it.
 - 本来用英文写是为了好玩。。后来发现ghost-blog的英文字体渲染真的好漂亮。于是想以后都用英文写了吧（误。。）
 
-<a name="reference"></a>
 ## Reference
 
 [^1]: [What I Hate About Git \| Hacker News](https://news.ycombinator.com/item?id=4340595)
