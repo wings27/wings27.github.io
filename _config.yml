@@ -22,7 +22,7 @@ zhihu_username:     wings27
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","*.sh","*.enc"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
 gems: [jekyll-paginate]
