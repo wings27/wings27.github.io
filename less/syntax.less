@@ -1,0 +1,241 @@
+/* to make lines scroll instead of wrap */
+/* from http://stackoverflow.com/a/23393920 */
+@import "variables.less";
+
+/*
+ * GitHub style for Pygments syntax highlighter, for use with Jekyll
+ * Courtesy of GitHub.com
+ */
+.highlight {
+  pre {
+    // this sets the scrolling in x;
+    background-color: @white-smoke;
+    border-radius: 3px;
+    border: 1px solid @gray-80;
+    overflow-x: auto;
+    padding: 6px 10px;
+    code {
+      // forces <code> to respect <pre> formatting;
+      white-space: pre;
+      * {
+        // this sets all children inside to nowrap;
+        white-space: nowrap;
+      }
+    }
+  }
+  .hll {
+    background-color: @white-smoke;
+    border-radius: 3px;
+    border: 1px solid @gray-80;
+    padding: 6px 10px;
+  }
+  .c {
+    color: @only-998;
+    font-style: italic;
+  }
+  .err {
+    background-color: #e3d2d2;
+    color: #a61717;
+  }
+  .k {
+    font-weight: bold;
+  }
+  .o {
+    font-weight: bold;
+  }
+  .cm {
+    color: @only-998;
+    font-style: italic;
+  }
+  .cp {
+    color: @gray-60;
+    font-weight: bold;
+  }
+  .c1 {
+    color: @only-998;
+    font-style: italic;
+  }
+  .cs {
+    color: @gray-60;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .gd {
+    background-color: #ffdddd;
+    color: @black;
+    .x {
+      background-color: #ffaaaa;
+      color: @black;
+    }
+  }
+  .ge {
+    font-style: italic;
+  }
+  .gr {
+    color: #aa0000;
+  }
+  .gh {
+    color: @gray-60;
+  }
+  .gi {
+    background-color: #ddffdd;
+    color: @black;
+    .x {
+      background-color: #aaffaa;
+      color: @black;
+    }
+  }
+  .go {
+    color: #888888;
+  }
+  .gp {
+    color: #555555;
+  }
+  .gs {
+    font-weight: bold;
+  }
+  .gu {
+    color: #800080;
+    font-weight: bold;
+  }
+  .gt {
+    color: #aa0000;
+  }
+  .kc {
+    font-weight: bold;
+  }
+  .kd {
+    font-weight: bold;
+  }
+  .kn {
+    font-weight: bold;
+  }
+  .kp {
+    font-weight: bold;
+  }
+  .kr {
+    font-weight: bold;
+  }
+  .kt {
+    color: #445588;
+    font-weight: bold;
+  }
+  .m {
+    color: @persian-green;
+  }
+  .s {
+    color: @crimson;
+  }
+  .n {
+    color: #333333;
+  }
+  .na {
+    color: teal;
+  }
+  .nb {
+    color: #0086b3;
+  }
+  .nc {
+    color: #445588;
+    font-weight: bold;
+  }
+  .no {
+    color: teal;
+  }
+  .ni {
+    color: purple;
+  }
+  .ne {
+    color: #990000;
+    font-weight: bold;
+  }
+  .nf {
+    color: #990000;
+    font-weight: bold;
+  }
+  .nn {
+    color: #555555;
+  }
+  .nt {
+    color: navy;
+  }
+  .nv {
+    color: teal;
+  }
+  .ow {
+    font-weight: bold;
+  }
+  .w {
+    color: #bbbbbb;
+  }
+  .mf {
+    color: @persian-green;
+  }
+  .mh {
+    color: @persian-green;
+  }
+  .mi {
+    color: @persian-green;
+  }
+  .mo {
+    color: @persian-green;
+  }
+  .sb {
+    color: @crimson;
+  }
+  .sc {
+    color: @crimson;
+  }
+  .sd {
+    color: @crimson;
+  }
+  .s2 {
+    color: @crimson;
+  }
+  .se {
+    color: @crimson;
+  }
+  .sh {
+    color: @crimson;
+  }
+  .si {
+    color: @crimson;
+  }
+  .sx {
+    color: @crimson;
+  }
+  .sr {
+    color: #009926;
+  }
+  .s1 {
+    color: @crimson;
+  }
+  .ss {
+    color: #990073;
+  }
+  .bp {
+    color: @gray-60;
+  }
+  .vc {
+    color: teal;
+  }
+  .vg {
+    color: teal;
+  }
+  .vi {
+    color: teal;
+  }
+  .il {
+    color: @persian-green;
+  }
+  .gc {
+    background-color: #EAF2F5;
+    color: @gray-60;
+  }
+}
+pre {
+  background-color: @white-smoke;
+  border-radius: 3px;
+  border: 1px solid @gray-80;
+  padding: 6px 10px;
+}
