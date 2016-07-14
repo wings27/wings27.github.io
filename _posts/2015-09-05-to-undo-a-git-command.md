@@ -4,7 +4,7 @@ title:      To Undo a Git Command
 subtitle:   "-- The cheat sheet"
 date:       2015-09-05 11:26
 author:     wings27
-header-img: ""
+header-img: "img/tag-git.jpg"
 tags:
     - Git
 ---
@@ -19,12 +19,14 @@ So it's very common for beginners to leave a mess in the workspace after running
 
 - [The Cheat Sheet](#the-cheat-sheet)
 - [Remarks](#remarks)
+- [Reference](#reference)
 
 <!-- /MarkdownTOC -->
 
 
 <a name="the-cheat-sheet"></a>
 
+<a name="the-cheat-sheet"></a>
 ## The Cheat Sheet
 
 Some commonly used git commands are listed below, along with the corresponding commands to undo or fixup the mess.
@@ -41,6 +43,7 @@ The commands are labeled with numbers, and the remarks on some of the commands a
 
 <a name="remarks"></a>
 
+<a name="remarks"></a>
 ## Remarks
 
 - 1\*: Works only when the commit is not an "orphan commit". [^3]
@@ -48,6 +51,7 @@ The commands are labeled with numbers, and the remarks on some of the commands a
 - 6\*: **Use with caution!** This may affect other people's work. If you don't know what you are doing, **DON'T** do it.
 - 本来用英文写是为了好玩。。后来发现ghost-blog的英文字体渲染真的好漂亮。于是想以后都用英文写了吧（误。。）
 
+<a name="reference"></a>
 ## Reference
 
 [^1]: [What I Hate About Git \| Hacker News](https://news.ycombinator.com/item?id=4340595)
