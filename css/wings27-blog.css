@@ -545,9 +545,6 @@ pre code {
   font-style: italic;
   color: #a3a3a3;
 }
-.post-content-preview:hover {
-  color: #0085a1;
-}
 @media only screen and (min-width: 768px) {
   .post-content-preview {
     font-size: 14px;
@@ -898,6 +895,19 @@ body {
 }
 .navbar-default .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 3px;
+}
+/* Customize Style for License */
+.license {
+  color: #999999;
+}
+.license > a {
+  color: #999999;
+}
+.license > a:hover {
+  text-decoration: none;
+}
+.license > a > img {
+  margin: auto auto auto auto;
 }
 /* Hux customize Style for Duoshuo */
 .comment {
