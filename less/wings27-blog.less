@@ -520,9 +520,6 @@ pre code {
   font-size: 13px;
   font-style: italic;
   color: #a3a3a3;
-  &:hover {
-    color: @brand-primary;
-  }
   @media only screen and (min-width: 768px) {
     font-size: 14px;
   }
@@ -903,6 +900,20 @@ body {
   }
   .icon-bar + .icon-bar {
     margin-top: 3px;
+  }
+}
+
+/* Customize Style for License */
+.license {
+  color: @gray-60;
+  > a {
+    color: @gray-60;
+    &:hover {
+      text-decoration: none;
+    }
+    > img {
+      margin: auto auto auto auto;
+    }
   }
 }
 

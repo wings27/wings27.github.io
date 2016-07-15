@@ -5,6 +5,7 @@ subtitle:   ""
 date:       2015-05-26 12:00
 author:     "wings27"
 header-img: "img/tag-windows.jpg"
+license:    true
 tags:
     - Windows
 ---
