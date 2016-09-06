@@ -9,7 +9,7 @@ tags:
     - Git
 ---
 
-It seems I'm not the only one who believes that git commands are poorly designed.[^1]
+It seems that I'm not alone to believe that git commands are poorly designed.[^1]
 
 To make things worse, they also provide a human-unreadable documentation as well.[^2]
 So it's very common for beginners to leave a mess in the workspace after running a God-knows-what-it-means git command. Therefore I wrote this blog. Hopefully this could save you from clueless.
@@ -24,23 +24,19 @@ So it's very common for beginners to leave a mess in the workspace after running
 ## The Cheat Sheet
 
 Some commonly used git commands are listed below, along with the corresponding commands to undo or fixup the mess.
-The commands are labeled with numbers, and the remarks on some of the commands are listed under the table content.
 
-| No. |   **Git Command**   |           **How To Undo**            |
-|-----|---------------------|--------------------------------------|
-| 0   | `git add <file>...` | `git rm --cached <file>...`          |
-| 1*  | `git commit`        | `git reset head^ --soft`             |
-| 2*  | `git commit`        | `git revert <commit_sha>`            |
-| 4   | `git merge`         | `git revert -m 1 <merge_commit_sha>` |
-| 5   | `git pull`          | `git reset HEAD@{1}`                 |
-| 6*  | `git push`          | `git push --force origin <refspec>`  |
+|   **Git Command**   |           **How To Undo**           |
+|---------------------|-------------------------------------|
+| `git add <file>...` | `git rm --cached <file>...`         |
+| `git commit`        | `git reset HEAD^ --soft`            |
+| `git commit`        | `git revert <commit_sha>`           |
+| `git merge`         | `git reset --hard ORIG_HEAD`        |
+| `git pull`          | `git reset HEAD@{1}`                |
+| `git push`          | `git push --force origin <refspec>` |
 
 ## Remarks
 
-- 1\*: Works only when the commit is not an "orphan commit". [^3]
-- 2\*: To "revert" a commit does not erase the commit record from the commit history. Instead, it generates a new commit which reverses the changes introduced by the earlier commit. This is usually the recommended way to revert the effect of a commit.
-- 6\*: **Use with caution!** This may affect other people's work. If you don't know what you are doing, **DON'T** do it.
-- 本来用英文写是为了好玩。。后来发现ghost-blog的英文字体渲染真的好漂亮。于是想以后都用英文写了吧（误。。）
+- 本来用英文就是随便写写，后来发现ghost-blog的英文字体渲染真的好漂亮。于是决定以后都用英文写了吧（误。。）
 
 ## Reference
 
