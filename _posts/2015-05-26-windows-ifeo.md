@@ -35,7 +35,6 @@ tags:
 
 首先来了解一下Windows的文件关联。
 
-<!--todo 重新组织语言 -->
 简单解释一下，windows的扩展名会对应一种文件类型，这种文件类型的不同操作再对应到不同的具体命令。
 
 写出来就类似这样： `.txt --> txtfile --> { "open": "notepad.exe %1", "edit": "notepad.exe %1", ... }`
