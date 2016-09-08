@@ -23,11 +23,7 @@ tags:
 
 VirtualBox是我个人非常喜欢的虚拟机软件，比起VMWare轻量很多，非常适合只做服务器的虚拟机。
 
-我的系统版本：
-
-物理机主机（host）安装了Windows 7，以及主角VirtualBox 4.3.24。
-
-虚拟机（guest）安装了CentOS 7，内核版本是 3.10.0-327.22.2.el7.x86_64
+我的系统版本：物理机主机（host）安装了Windows 7，以及VirtualBox 4.3.24。虚拟机（guest）安装了CentOS 7，内核版本是 3.10.0-327.22.2.el7.x86_64
 
 ```bash
 uname -a
@@ -87,7 +83,7 @@ VirtualBox的网卡配置如下：
 ![xshell-connect-localhost.png](/img/in-post/xshell-connect-localhost.png)
 （此处良心推荐XShell，真心好用）
 
-如果需要连接的虚拟机的端口比较多，每次都配置端口转发会比较麻烦，所以我们可以在此基础上新增一个网卡配置为：**仅主机（Host-Only）配适器**，用于物理机直接连接虚拟机，以及同一主机下的多个虚拟机互联。
+如果需要连接的虚拟机的端口比较多，每次都配置端口转发会比较麻烦，所以我们可以在NAT网卡的基础上新增一个网卡配置为：**仅主机（Host-Only）配适器**，用于物理机直接连接虚拟机，以及同一主机下的多个虚拟机互联。这样就不需要配置任何端口转发规则了。
 
 VirtualBox 安装时就会配置好VirtualBox Host-Only Network Adapter：
 ![virtual-box-host-only-adapter.png](/img/in-post/virtual-box-host-only-adapter.png)
@@ -171,7 +167,7 @@ ip addr flush enp0s8
 
 虚拟机也可以连接主机：10.0.2.2（通过NAT）[^3]或 192.168.56.1（通过Host Only Adapter）
 
-相关文章：VirtualBox 虚拟机和主机的文件共享（待填坑。。）
+相关文章：VirtualBox 虚拟机和主机的文件共享（待填坑。。 ^_^）
 
 
 ### 参考文献

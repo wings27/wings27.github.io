@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "利用Windows映像劫持实现默认程序的替换"
-subtitle:   ""
+title:      "完美解决Windows默认程序的替换"
+subtitle:   "利用Windows映像劫持实现默认程序的动态替换"
 date:       2015-05-26 12:00
 author:     "wings27"
 header-img: "img/tag-windows.jpg"
@@ -21,11 +21,16 @@ tags:
 
 ### 文件关联
 
-我们可能都遇到过需要更改系统默认文件关联的情况。比如想用我们心♂爱的编辑器打开所有文本类型的文件。这就需要了解Windows的文件关联。
+我们可能都遇到过需要更改系统默认文件关联的情况。比如想用我们心♂爱的编辑器替换掉很low的notepad.exe打开所有文本类型的文件。
 
-简单解释一下，Windows的资源管理器识别文件类型是由扩展名决定的（而并不是文件头决定文件类型）。首先扩展名会对应一种文件类型，这种文件类型的不同操作再对应到不同的具体命令。
+解决方案主要有两类：（补充）
 
-比如： `.txt --> txtfile --> { "open": "notepad.exe %1", "edit": "notepad.exe %1", ... }`
+首先来了解一下Windows的文件关联。
+
+<!--todo 重新组织语言 -->
+简单解释一下，~~Windows的资源管理器识别文件类型是由扩展名决定的（而并不是文件头决定文件类型）。~~首先扩展名会对应一种文件类型，这种文件类型的不同操作再对应到不同的具体命令。
+
+像这样： `.txt --> txtfile --> { "open": "notepad.exe %1", "edit": "notepad.exe %1", ... }`
 
 这些对应关系保存于注册表的`HKEY_CLASSES_ROOT`项，由Explorer读取后，决定文件该用什么命令处理。
 
@@ -92,6 +97,55 @@ tags:
 
 至此，使用IFEO替换默认编辑器就已经完成了。快去开心地撸代码吧！\\(^o^)/ YEAH!
 
+
+---
+补充：
+
+### 补充python代码
+
+由于上述方法不支持路径中包含空格（原因是带空格的路径被当成了多个参数）。写了段python处理空格问题。
+
+注册表Debugger字段相应改为：`"C:\Python34\python.exe" "D:\OAE\LINK\notepad_replacer.py"`
+
+`D:\OAE\LINK\notepad_replacer.py` 内容如下：
+
+```python
+import os.path
+import subprocess as sp
+import sys
+import time
+
+
+def main():
+    new_notepad = 'C:\\Program Files\\Sublime Text 3\\sublime_text.exe'
+
+    args = sys.argv[2:]  # ignore the first arg (this script itself) and the second arg (original notepad.exe)
+    path = guess_path(args)
+    if path:
+        sp.Popen([new_notepad, path])
+    else:
+        sp.Popen(new_notepad)
+
+
+def guess_path(args):
+    if len(args) == 0:
+        return None
+    path = ' '.join(args)
+    if os.path.isfile(path):
+        return path
+    else:
+        print('ERROR: Path not exist: ' + path)
+        print('multiple continuous spaces in path?')
+        return None
+
+if __name__ == '__main__':
+    main()
+
+```
+
+将上述代码重命名。。（操作步骤）
+
+win7 支持路径包含空格（示例），支持同时选中多个文件打开（附图）。但不支持路径包含多个连续空格（好吧，并不完美，嘤嘤嘤）。
 
 ### 参考文献
 
