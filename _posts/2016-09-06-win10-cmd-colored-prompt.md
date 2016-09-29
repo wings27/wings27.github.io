@@ -2,7 +2,7 @@
 layout:     post
 title:      "Win10命令行实现彩色提示符"
 subtitle:   ""
-date:		2016-07-06 00:00
+date:       2016-09-06 00:00
 author:     "wings27"
 header-img: "img/tag-windows.jpg"
 license:    true
