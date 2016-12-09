@@ -98,4 +98,4 @@ Linux通常有以下几个环境配置文件：
 
 [^2]: [知乎 - Linux 下 “一切皆文件” 思想的本质和好处在哪里？](http://www.zhihu.com/question/25696682)
 
-[^3]: [Configuration / Environment Variables | CentOS HowTos](http://centoshowtos.org/environment-variables/)
+[^3]: [Configuration / Environment Variables \| CentOS HowTos](http://centoshowtos.org/environment-variables/)
