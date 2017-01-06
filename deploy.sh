@@ -31,13 +31,6 @@ git fetch --all
 
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
-echo "setting git user..."
-
-# Git add & commit
-git config user.name "Travis CI"
-git config user.email "$COMMIT_AUTHOR_EMAIL"
-echo;
-
 # Run our compile script
 doCompile
 
@@ -52,6 +45,14 @@ if git diff --cached --quiet; then
 	echo "No changes detected. Exiting..."
 	exit 0
 fi
+
+# Git add & commit
+git config --global user.name "Travis CI"
+git config --global user.email "$COMMIT_AUTHOR_EMAIL"
+echo;
+
+git config --global user.name
+git config --global user.email
 
 git commit -m "CI Commit: Based on ${SHA}"
 
