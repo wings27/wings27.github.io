@@ -1,6 +1,7 @@
 env:
   global:
   - ENCRYPTION_LABEL: 43aad3c5286a
+  - COMMIT_AUTHOR_EMAIL: wenqs27@gmail.com
 
 language: node_js
 node_js:
