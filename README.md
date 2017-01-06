@@ -5,4 +5,4 @@
 
 ## Introduction
 
-Just a personal blog.
+Just a personal [blog](http://wings27.github.io).
