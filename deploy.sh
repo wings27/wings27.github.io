@@ -51,9 +51,6 @@ git config --global user.name "Travis CI"
 git config --global user.email "$COMMIT_AUTHOR_EMAIL"
 echo;
 
-git config --global user.name
-git config --global user.email
-
 git commit -m "CI Commit: Based on ${SHA}"
 
 echo;
