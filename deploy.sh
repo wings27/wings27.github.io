@@ -31,13 +31,15 @@ git fetch --all
 
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 
-# Run our compile script
-doCompile
+echo "setting git user..."
 
 # Git add & commit
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 echo;
+
+# Run our compile script
+doCompile
 
 git add --all
 echo;
