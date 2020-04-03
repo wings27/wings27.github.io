@@ -34,7 +34,7 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 # Run our compile script
 doCompile
 
-git add --all
+git add *.css *.js *.html
 echo;
 
 echo "git status:"
