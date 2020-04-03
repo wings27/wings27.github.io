@@ -23,7 +23,9 @@ fi
 
 # Save some useful information
 REPO=`git config remote.origin.url`
-SSH_REPO=${GH_TOKEN}${REPO/https:\/\/github.com\//@github.com:}
+echo REPO
+SSH_REPO=https://${GH_TOKEN}${REPO/https:\/\/github.com/@github.com}
+echo $SSH_REPO
 SHA=`git rev-parse --verify HEAD`
 
 git config remote.origin.fetch refs/heads/*:refs/remotes/origin/*
@@ -68,6 +70,5 @@ echo;
 # eval `ssh-agent -s`
 # ssh-add deploy_key
 
-echo $SSH_REPO
 # All set up. Push to remote.
 git push --verbose $SSH_REPO $TARGET_BRANCH
