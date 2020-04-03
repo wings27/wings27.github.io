@@ -45,7 +45,7 @@ header-img: "img/about-bg.jpg"
 
 
 
-{% if site.gittalk_clientID %}
+{% if site.gitalk_clientID %}
 <!-- gitalk 评论框 start -->
 <div id="gitalk-container"></div>
 <!-- gitalk 评论框 end -->
@@ -53,8 +53,8 @@ header-img: "img/about-bg.jpg"
 <!-- gitalk 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     const gitalk = new Gitalk({
-        clientID: "{{site.gittalk_clientID}}",
-        clientSecret: "{{site.gittalk_clientSecret}}",
+        clientID: "{{site.gitalk_clientID}}",
+        clientSecret: "{{site.gitalk_clientSecret}}",
         repo: 'wings27.github.io',
         owner: 'wings27',
         admin: ['wings27'],
