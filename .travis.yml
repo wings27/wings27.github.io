@@ -2,14 +2,13 @@ env:
   global:
   - ENCRYPTION_LABEL: 43aad3c5286a
   - COMMIT_AUTHOR_EMAIL: wenqs27@gmail.com
-
+  - secure: dBCGtJjnWcyFPSoseizVOMRfWWgTAkS5qmXL1dkA2oYeyfsWfg2Rcr482/+RBSCaJbSakBQjXpUxjdsAehBh6OH9bGLjFBqpuSvY7b5sB3RzXbOTYb3I7PhvCQwgxIsv+L1jIiAiNYFNa+Z3ytaXazpkpMQ6j4MM66bt9fGYqAgNGhV7qwKE86lm6v2Si6LD2+68Go0DBXgi7elknGiFeURNwg1ZAAUx314yyMSv1Zf/k5B6fzDvZC0iYVQtlFa5iUdTqDKteCxK9I7vDIMmNN++GiD7tlfD/Lf0ezmP4naRH/QzxAjPfuAJlV29jcQglt1a8ELLn3QHe63Xe6TMhU5IcdOVJ06+6eJz7+Rvc+YMS9UcLpE0nWMao1iipKN9FUYPFTX8kR5TQ2iBMQKM/3X80FUy7PO9UdMGj+QMSOuppDncuA9JbffDskP/GL1ISpls+EA8KpywquKLfiXIYTaoeKIKjFk+tUAneq39pR8LRt3wQ00JAOts4u3wBOkLFBd3m7vUcItcS/XKPfk59DNoWS/lQlFEZlUxPPaxkwyJlsrGhBdpcDfkB4asT7vRzoBvlI6j1FwmLbwzT3PcpXy5EoTpMXfMCgSVnYZA+qhXnIhaPhL8kXkomOCMFXtp7f3k3GaPqoaebgLSip1pisuIIv2HWTAn/9bDAhopD2I=
 language: node_js
 node_js:
 - stable
 before_install: npm install -g grunt-cli
 install: npm install
-script: bash ./deploy.sh
-
+script: "./deploy.sh"
 cache:
   directories:
-  - node_modules # NPM packages
+  - node_modules
