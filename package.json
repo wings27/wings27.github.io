@@ -2,7 +2,7 @@
   "name": "wings27-blog",
   "title": "Wings27 Blog",
   "version": "1.0.0",
-  "homepage": "http://wings27.github.io",
+  "homepage": "https://wings27.github.io",
   "author": "wings27",
   "devDependencies": {
     "grunt": "^0.4.5",
