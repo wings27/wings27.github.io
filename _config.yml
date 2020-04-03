@@ -41,10 +41,14 @@ kramdown:
 # Disqus settings
 #disqus_username: wings27blog           # uncomment to use.
 
+# GitTalk settings
+gittalk_clientID: e5628fa1ccbd73e37aae           # uncomment to use.
+gittalk_clientSecret: da2e70105d96059f6ac9f0c20aafa0bfbd98f45e
+
 # Duoshuo settings
-duoshuo_username: wings27blog
+# duoshuo_username: wings27blog
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 
 
