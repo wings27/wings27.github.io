@@ -129,6 +129,45 @@
 </script>
 
 
+<!-- vssue 评论 -->
+{% if site.vssue_clientID %}
+  <!-- 先引入 Vue -->
+
+  <!-- Vue 运行时版 (runtime only)  -->
+  <script src="https://unpkg.com/vue/dist/vue.runtime.min.js"></script>
+
+  <!-- 在 Vue 之后引入 Vssue -->
+
+  <!-- Vssue Github 版  -->
+  <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+  
+  <!-- 将 Vssue 作为 Vue 组件使用 -->
+
+  <!-- 对于 Vue 运行时版，使用渲染函数（render function） -->
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // 在这里设置当前页面对应的 Issue 标题
+          title: location.pathname,
+
+          // 在这里设置你使用的平台的 OAuth App 配置
+          options: {
+            owner: 'wings27',
+            repo: 'wings27.github.io',
+            clientId: "{{site.vssue_clientID}}",
+            clientSecret: "{{site.vssue_clientSecret}}",
+          },
+        }
+      })
+    })
+  </script>
+{% endif %}
+<!-- vssue 评论 -->
+
+
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
 <script>

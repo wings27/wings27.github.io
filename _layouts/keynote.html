@@ -76,8 +76,13 @@ layout: default
                 <!-- gitalk 评论框 start -->
                 <div id="gitalk-container"></div>
                 <!-- gitalk 评论框 end -->
-
                 {% endif %}
+
+
+                {% if site.vssue_clientID %}
+                <div id="vssue"></div>
+                {% endif %}
+
 
                 {% if site.disqus_username %}
                 <!-- disqus 评论框 start -->

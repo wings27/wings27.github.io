@@ -42,8 +42,12 @@ kramdown:
 #disqus_username: wings27blog           # uncomment to use.
 
 # gitalk settings
-gitalk_clientID: e5628fa1ccbd73e37aae           # uncomment to use.
-gitalk_clientSecret: da2e70105d96059f6ac9f0c20aafa0bfbd98f45e
+# gitalk_clientID: e5628fa1ccbd73e37aae           # uncomment to use.
+# gitalk_clientSecret: da2e70105d96059f6ac9f0c20aafa0bfbd98f45e
+
+# gitalk settings
+vssue_clientID: e5628fa1ccbd73e37aae           # uncomment to use.
+vssue_clientSecret: da2e70105d96059f6ac9f0c20aafa0bfbd98f45e
 
 # Duoshuo settings
 # duoshuo_username: wings27blog
