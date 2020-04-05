@@ -6,7 +6,7 @@ date:       2013-06-01 12:00
 author:     "wings27"
 header-img: "img/tag-windows.jpg"
 tags:
-    - CSharp
+    - C#
     - Windows
 ---
 
@@ -38,28 +38,28 @@ using System.Threading;
 
 namespace DelegateDemo
 {
-    public delegate void PostEventHandler(string postStatus);
+  public delegate void PostEventHandler(string postStatus);
 
-    internal class Director
-    {
-        private static PostEventHandler _report;
+  internal class Director
+  {
+      private static PostEventHandler _report;
 
-        public event PostEventHandler OnReport
-        {
-            add { _report += value; }
-            remove { _report -= value; }
-        }
+      public event PostEventHandler OnReport
+      {
+          add { _report += value; }
+          remove { _report -= value; }
+      }
 
-        public static void Test()
-        {
-            int counter = 0;
-            while (counter++ < 100)
-            {
-                _report(counter.ToString());
-                Thread.Sleep(100);
-            }
-        }
-    }
+      public static void Test()
+      {
+          int counter = 0;
+          while (counter++ < 100)
+          {
+              _report(counter.ToString());
+              Thread.Sleep(100);
+          }
+      }
+  }
 }
 ```
 
@@ -67,41 +67,41 @@ namespace DelegateDemo
 
 ```csharp
 
-  // DelegateDemo - Form1.cs
-  // by Wings
-  // Last Modified : 2013-05-27 19:54
-  
-  using System;
-  using System.Threading;
-  using System.Windows.Forms;
-  
-  namespace DelegateDemo
-  {
-      public partial class Form1 : Form
-      {
-          public Form1()
-          {
-              InitializeComponent();
-          }
-  
-          private void button1_Click(object sender, EventArgs e)
-          {
-              Director director = new Director();
-              director.OnReport += director_OnReport;
-              Thread thread = new Thread(Director.Test)
-                              {
-                                  Name = "thdDirector"
-                              };
-              thread.Start();
-          }
-  
-          private void director_OnReport(string postStatus)
-          {
-              int value = Convert.ToInt32(postStatus);
-              this.progressBar1.Value = value;  //此处产生异常
-          }
-      }
-  }
+// DelegateDemo - Form1.cs
+// by Wings
+// Last Modified : 2013-05-27 19:54
+
+using System;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace DelegateDemo
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Director director = new Director();
+            director.OnReport += director_OnReport;
+            Thread thread = new Thread(Director.Test)
+                            {
+                                Name = "thdDirector"
+                            };
+            thread.Start();
+        }
+
+        private void director_OnReport(string postStatus)
+        {
+            int value = Convert.ToInt32(postStatus);
+            this.progressBar1.Value = value;  //此处产生异常
+        }
+    }
+}
 ```
 
 我们知道多线程下处于竞态条件（Race Condition[^1]）的资源状态同步可能出现冲突。因此CLR才会禁止这种跨线程修改主窗体控件的行为。
@@ -135,54 +135,54 @@ public Form1()
 
 ```csharp
 
- // DelegateDemo - Form1.cs
- // by Wings
- // Last Modified : 2013-05-28 13:06
- 
- using System;
- using System.Threading;
- using System.Windows.Forms;
- 
- namespace DelegateDemo
- {
-     public partial class Form1 : Form
-     {
-         public Form1()
-         {
-             InitializeComponent();
-         }
- 
-         private void button1_Click(object sender, EventArgs e)
-         {
-             Director director = new Director();
-             director.OnReport += director_OnReport;
-             Thread thread = new Thread(Director.Test)
-                             {
-                                 Name = "thdDirector"
-                             };
-             thread.Start();
-         }
- 
-         private void director_OnReport(string postStatus)
-         {
-             int value = Convert.ToInt32(postStatus);
-             if (this.progressBar1.InvokeRequired)
-             {
-                 SetValueCallback setValueCallback = delegate(int i)
-                                                     {
-                                                         this.progressBar1.Value = i;
-                                                     };
-                 this.progressBar1.BeginInvoke(setValueCallback, value);
-             }
-             else
-             {
-                 this.progressBar1.Value = value;
-             }
-         }
- 
-         private delegate void SetValueCallback(int value);
-     }
- }
+// DelegateDemo - Form1.cs
+// by Wings
+// Last Modified : 2013-05-28 13:06
+
+using System;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace DelegateDemo
+{
+   public partial class Form1 : Form
+   {
+       public Form1()
+       {
+           InitializeComponent();
+       }
+
+       private void button1_Click(object sender, EventArgs e)
+       {
+           Director director = new Director();
+           director.OnReport += director_OnReport;
+           Thread thread = new Thread(Director.Test)
+                           {
+                               Name = "thdDirector"
+                           };
+           thread.Start();
+       }
+
+       private void director_OnReport(string postStatus)
+       {
+           int value = Convert.ToInt32(postStatus);
+           if (this.progressBar1.InvokeRequired)
+           {
+               SetValueCallback setValueCallback = delegate(int i)
+                                                   {
+                                                       this.progressBar1.Value = i;
+                                                   };
+               this.progressBar1.BeginInvoke(setValueCallback, value);
+           }
+           else
+           {
+               this.progressBar1.Value = value;
+           }
+       }
+
+       private delegate void SetValueCallback(int value);
+   }
+}
 ```
 
 至此，问题解决。
@@ -216,7 +216,7 @@ public IAsyncResult BeginInvoke(Delegate method, params object[] args)
 
 实质都是调用了`MarshaledInvoke`方法。
 
-Marshaled这个词常写Native Methods的同学一定很熟悉。对应的中文翻译我。。不知道。。 貌似是叫“编组”。
+Marshaled这个概念常写Native Methods的同学一定很熟悉。对应的中文翻译我。。不知道。。 貌似是叫“编组”。
 
 给出维基百科的释义[^3]作为参考吧：
 
@@ -287,27 +287,27 @@ MSDN文档[^4]：
 [EditorBrowsable(EditorBrowsableState.Advanced)]
 public bool InvokeRequired
 {
-      get
+  get
+  {
+    using (new Control.MultithreadSafeCallScope())
+    {
+      HandleRef hWnd;
+      if (this.IsHandleCreated)
       {
-        using (new Control.MultithreadSafeCallScope())
-        {
-          HandleRef hWnd;
-          if (this.IsHandleCreated)
-          {
-            hWnd = new HandleRef((object) this, this.Handle);
-          }
-          else
-          {
-            Control marshalingControl = this.FindMarshalingControl();
-            if (!marshalingControl.IsHandleCreated)
-              return false;
-            hWnd = new HandleRef((object) marshalingControl, marshalingControl.Handle);
-          }
-          int lpdwProcessId;
-          return System.Windows.Forms.SafeNativeMethods.GetWindowThreadProcessId(hWnd, out lpdwProcessId) != System.Windows.Forms.SafeNativeMethods.GetCurrentThreadId();
-        }
+        hWnd = new HandleRef((object) this, this.Handle);
       }
+      else
+      {
+        Control marshalingControl = this.FindMarshalingControl();
+        if (!marshalingControl.IsHandleCreated)
+          return false;
+        hWnd = new HandleRef((object) marshalingControl, marshalingControl.Handle);
+      }
+      int lpdwProcessId;
+      return System.Windows.Forms.SafeNativeMethods.GetWindowThreadProcessId(hWnd, out lpdwProcessId) != System.Windows.Forms.SafeNativeMethods.GetCurrentThreadId();
     }
+  }
+}
 ```
 
 果然如此，最后的return写得很清楚。
@@ -398,12 +398,12 @@ public bool InvokeRequired
 
 然后从`IL_001b:  ldftn`位置开始实例化新线程并进行相关赋值操作，直到`IL_003b:  callvirt`位置调用`Thread::Start()`启动线程。
 
-这样我们已经基本理清了绑定的实现过程，但是代码在执行时是否如上面所说是“函数在回调绑定完成之后直接被替换”这样呢？想要验证就必须再看MSIL的底层实现，就是汇编啦。
+这样我们已经基本理清了绑定的实现过程，但是代码在执行时是否如上面所说是“函数在回调绑定完成之后直接被替换”这样呢？想要验证就必须再看MSIL的底层实现，也就是汇编啦。
 
 
 #### 事件委托的本质
 
-打开高端大气上档次的反汇编工具，在Director类中设定断点。
+打开反汇编工具，在Director类中设定断点。
 
 这里我们主要看以下两处：
 
@@ -463,7 +463,7 @@ public bool InvokeRequired
 
 其中Combine的代码我省略了。
 
-运行到断点1：
+继续运行到断点1：
 
 `Director.cs - Asm`内容：
 
@@ -537,7 +537,7 @@ C#事件委托绑定的回调在实现上就是调用同一函数，可以验证
 以及，要养成写博客的好习惯~
 
 ```
-// 看自己N年前的博客，有一种莫名的羞耻感。。 ~(@^_^@)~
+// 看自己N年前的博客，有一种莫名的羞耻感。。。
 ```
 
 

@@ -4,10 +4,11 @@ title:      "VirtualBox网络配置详解"
 subtitle:   "虚拟机连外网，主机与虚拟机互联，虚拟机与虚拟机互联"
 date:       2016-07-28 00:00
 author:     "wings27"
-header-img: "img/tag-linux.jpg"
+header-img: "img/post-bg-unix-linux.jpg"
 license:    true
 tags:
     - Linux
+    - network
 ---
 
 本文将介绍VirtualBox虚拟机网络配置，使得虚拟机可以连接互联网，并且主机与虚拟机可以互相联通
@@ -29,7 +30,7 @@ VirtualBox是我个人非常喜欢的虚拟机软件，比起VMWare轻量很多�
 uname -a
 ```
 
-```plain
+```text
 Linux localhost.localdomain 3.10.0-327.22.2.el7.x86_64 #1 SMP Thu Jun 23 17:05:11 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
 ```
 

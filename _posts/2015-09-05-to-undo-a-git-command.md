@@ -34,10 +34,6 @@ Some commonly used git commands are listed below, along with the corresponding c
 | `git pull`          | `git reset HEAD@{1}`                |
 | `git push`          | `git push --force origin <refspec>` |
 
-## Remarks
-
-- 本来用英文就是随便写写，后来发现ghost-blog的英文字体渲染真的好漂亮。于是决定以后都用英文写了吧（误。。）
-
 ## Reference
 
 [^1]: [What I Hate About Git \| Hacker News](https://news.ycombinator.com/item?id=4340595)

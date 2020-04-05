@@ -7,7 +7,7 @@ author:     "wings27"
 header-img: "img/tag-bg.jpg"
 license:    true
 tags:
-    - linux
+    - Linux
 ---
 
 Windows上的环境变量配置大家都比较熟悉了，通常我们都会使用系统提供的图形界面来配置，简(shi)单(fen)易(dan)用(teng)。其实Linux上的环境变量配置更为简洁。
@@ -81,7 +81,7 @@ Linux通常有以下几个环境配置文件：
 
 #### 结论
 
-1. 原则上**不推荐**对`/etc/profile`做任何更改，（在`/etc/profile` 头部的注释中就能看到），主要应该是基于维护成本考虑。
+1. 原则上**不推荐**对`/etc/profile`做任何更改，（在`/etc/profile` 头部的注释中就能看到），主要是基于维护成本考虑。
 
 2. `/etc/profile.d/*.sh`总是会加载，无论是登录进入bash还是su进入bash都会加载，因此**系统级别**的变量配置脚本推荐放入`/etc/profile.d/`下。（注意后缀名和权限）。
 
