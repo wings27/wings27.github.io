@@ -17,6 +17,13 @@ tags:
 {:toc}
 
 
+
+## 更新
+
+最新消息，多说已经挂掉不运营了。无奈全站改为vssue.
+
+可怜我的那么多评论啊。。扶额.jpg
+
 ## 问题
 
 多说分享插件有某些分享渠道显示为undefined，如图：
@@ -63,11 +70,6 @@ $(document).one('mouseover', 'li[data-toggle="ds-share-icons-more"]', function (
 ![duoshuo-share-bug](/img/in-post/duoshuo-share-bug-fixed.png)
 
 另一个方案是选用unstable版的插件，已经修复了这个问题。但是unstable版不够稳定，而且取消了鼠标悬停的触发，个人不建议使用。
-
-
-## 更新
-
-最新消息，多说已经挂掉不运营了。全站改为vssue.
 
 
 ## 参考文献

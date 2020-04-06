@@ -4,7 +4,7 @@ title:      "搭建v2ray上科学网"
 subtitle:   "使用https+websocket，有效防止IP被墙"
 date:		2020-03-15 12:00
 author:     "wings27"
-header-img: "img/tag-bg.jpg"
+header-img: "img/post-bg-unix-linux.jpg"
 license:    true
 tags:
     - network
@@ -21,7 +21,7 @@ tags:
 
 购买VPS、域名，并配置域名的CNAME/A记录等。
 
-[推荐一个比较靠谱的服务商: Vultr](https://www.vultr.com/?ref=7267152)，New York (NJ)地区每月3.5刀，按实际使用时长付费。
+[推荐一个比较靠谱的VPS服务商: Vultr](https://www.vultr.com/?ref=7267152)，New York (NJ)地区每月3.5刀，按实际使用时长付费。
 
 tips：使用以上购买链接可获得10刀。
 
