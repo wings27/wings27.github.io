@@ -19,7 +19,7 @@ tags:
 理解volatile的三重境界：
 
 第一重境界：（本篇），理解`volatile`的基本作用
-第二重境界：（本篇），理解`volatile`基本作用背后的底层原理
+第二重境界：（本篇），理解`volatile`背后的底层原理
 第三重境界：（下一篇），理解happens-before语义和synchronize-with语义，掌握Java的线程模型和锁机制
 
 ## 目录
