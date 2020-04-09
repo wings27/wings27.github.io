@@ -26,10 +26,13 @@
     <!-- Change font-awesome CDN to qiniu -->
     <link href="//cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+
+    {% if site.gitalk_clientID %}
     <!-- gitalk -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-
+    {% endif %}
+    
     <!-- Vssue 的样式文件 -->
     <link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
 
