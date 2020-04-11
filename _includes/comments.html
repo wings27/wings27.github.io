@@ -1,0 +1,42 @@
+{% assign page_slug = page.url | slugify %}
+<section class="">
+    <h2 class="">Comments</h2>
+    {% for comment_post in site.data.comments %}
+    {% if comment_post[0] == page_slug %}
+    <span>{{comment_post[1].size}} 条评论</span>
+    {% for comment_entry in comment_post[1] %}
+    {% assign comment = comment_entry[1] %}
+    <article class="">
+        <header class="comment comment-header">
+            <span class="comment comment-author" id="{{comment._id}}">
+                <a href="mailto://{{ comment.email | strip_html }}" title="{{ comment.name | strip_html }}" target="_blank">{{ comment.name | strip_html }}</a></span>
+            <span class="comment comment-created-at">
+                <time datetime="{{ comment.date | date: "%Y-%m-%d %H:%M" }}">
+                    <span class="comment-date">{{ comment.date | date: "%Y-%m-%d" }}</span>
+                    <span>{{ comment.date | date: "%H:%M" }}</span>
+                </time>
+        </header>
+        <div class="comment comment-body">
+            {{ comment.message | strip_html | markdownify | smartify }}
+        </div>
+    </article>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+</section>
+<section class="">
+    <hr/>
+    <h4 id="leave-comment">Leave a comment</h4>
+    <div class="add-comment-notice">评论内容需要审核后才能显示<br/>
+        提交评论后会自动在<a href="https://github.com/wings27/wings27.github.io/pulls">GitHub创建PR</a>，我会尽快完成审核</div>
+    <div class="add-comment add-comment-container">
+        <form method="POST" action=" https://dev.staticman.net/v3/entry/github/wings27/wings27.github.io/master/comments">
+            <input name="options[redirect]" type="hidden" value="{{site.url}}{{page.url}}#comments">
+            <input name="options[slug]" type="hidden" value="{{ page_slug }}">
+            <label class="add-comment add-comment-author">Name: <input name="fields[name]" type="text" required placeholder="Your Name"></label>
+            <label class="add-comment add-comment-email">Email: <input name="fields[email]" type="email" required placeholder="email@domain.com"></label>
+            <label class="add-comment add-comment-content">Comment:<textarea name="fields[message]" rows="3"></textarea></label>
+            <button type="submit">Go!</button>
+        </form>
+    </div>
+</section>

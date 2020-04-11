@@ -917,50 +917,6 @@ body {
   }
 }
 
-/* Hux customize Style for Duoshuo */
-.comment {
-  margin-top: 20px;
-  #ds-thread {
-    #ds-reset {
-      a.ds-like-thread-button {
-        border: 1px solid #ddd;
-        border-radius: 0px;
-        background: white;
-        box-shadow: none;
-        text-shadow: none;
-      }
-      a.ds-thread-liked {
-
-      }
-      li.ds-tab a.ds-current {
-        border: 1px solid #ddd;
-        border-radius: 0px;
-        background: white;
-        box-shadow: none;
-        text-shadow: none;
-      }
-      .ds-textarea-wrapper {
-        //border:1px solid #ddd;
-        background: none;
-      }
-      .ds-gradient-bg {
-        background: none;
-      }
-      .ds-post-button {
-
-      }
-    }
-  }
-}
-
-#ds-smilies-tooltip ul.ds-smilies-tabs li a {
-  background: white !important;
-}
-
-p.ds-powered-by {
-  display: none;
-}
-
 // Hux fullscreen mode in 404.html
 
 .page-fullscreen .intro-header {
@@ -1014,3 +970,124 @@ p.ds-powered-by {
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
 }
+
+.comment {
+  font-size: 16px;
+}
+
+.comment-header {
+  margin-top: 20px;
+  padding: 10px 15px;
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid @gray-light;
+  font-size: 16px;
+}
+
+.comment-author {
+  font-weight: 500;
+}
+
+.comment-created-at {
+  float: right;
+  cursor: default;
+  color: @gray;
+}
+
+.comment-body {
+  padding: 10px 15px;
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid @gray-light;
+  border-top: none;
+  margin-bottom: 20px;
+  p {
+    margin: 5px;
+  }
+}
+
+.comment-date {
+  padding-right: 5px;
+}
+
+.add-comment {
+  .sans-serif;
+  color: @gray-dark;
+  font-size: 14px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  label {
+    font-weight: 500;
+  }
+  input, textarea {
+    font-size: 13px;  
+    @media only screen and (min-width: 768px) {
+      font-size: 15px;
+    }
+    font-weight: normal;
+    border: 1px solid @gray-l;
+    border-radius: 3px;
+  }
+
+  button {
+    .sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 0;
+    @media only screen and (min-width: 768px) {
+      font-size: 16px;
+      font-weight: 500;
+      padding: 5px 20px;
+    }
+  }
+
+  button:hover, button:focus {
+      color: whitesmoke;
+      background-color: @brand-primary;
+      border: 1px solid @brand-primary;
+      > span {
+        color: #fff;
+      }
+    }
+}
+
+.add-comment-container {
+  margin-top: 30px;
+}
+
+.add-comment-notice {
+  font-size: 12px;
+  @media only screen and (min-width: 768px) {
+    font-size: 13px;
+  }
+  color: @gray;
+}
+
+.add-comment-author {
+}
+
+.add-comment-email {
+  float: right;
+  input {
+    width: 270px;
+  }
+}
+
+.add-comment-content {
+  margin-top: 5px;
+  width: 100%;
+  textarea {
+    width: 100%;
+  }
+}
+
+

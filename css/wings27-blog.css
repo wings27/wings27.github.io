@@ -1,8 +1,3 @@
-/*!
- * Wings27 Blog v1.0.0 (https://wings27.github.io)
- * Copyright 2020 wings27
- */
-
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
@@ -909,36 +904,6 @@ body {
 .license > a > img {
   margin: auto auto auto auto;
 }
-/* Hux customize Style for Duoshuo */
-.comment {
-  margin-top: 20px;
-}
-.comment #ds-thread #ds-reset a.ds-like-thread-button {
-  border: 1px solid #ddd;
-  border-radius: 0px;
-  background: white;
-  box-shadow: none;
-  text-shadow: none;
-}
-.comment #ds-thread #ds-reset li.ds-tab a.ds-current {
-  border: 1px solid #ddd;
-  border-radius: 0px;
-  background: white;
-  box-shadow: none;
-  text-shadow: none;
-}
-.comment #ds-thread #ds-reset .ds-textarea-wrapper {
-  background: none;
-}
-.comment #ds-thread #ds-reset .ds-gradient-bg {
-  background: none;
-}
-#ds-smilies-tooltip ul.ds-smilies-tabs li a {
-  background: white !important;
-}
-p.ds-powered-by {
-  display: none;
-}
 .page-fullscreen .intro-header {
   position: fixed;
   left: 0;
@@ -982,4 +947,127 @@ p.ds-powered-by {
 }
 .page-fullscreen footer .copyright a:hover {
   color: #ddd;
+}
+.comment {
+  font-size: 16px;
+}
+.comment-header {
+  margin-top: 20px;
+  padding: 10px 15px;
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid #eeeeee;
+  font-size: 16px;
+}
+.comment-author {
+  font-weight: 500;
+}
+.comment-created-at {
+  float: right;
+  cursor: default;
+  color: #808080;
+}
+.comment-body {
+  padding: 10px 15px;
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #eeeeee;
+  border-top: none;
+  margin-bottom: 20px;
+}
+.comment-body p {
+  margin: 5px;
+}
+.comment-date {
+  padding-right: 5px;
+}
+.add-comment {
+  /* Hux learn from
+     *     TypeIsBeautiful,
+     *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
+     */
+  font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  line-height: 1.7;
+  color: #404040;
+  font-size: 14px;
+}
+@media only screen and (min-width: 768px) {
+  .add-comment {
+    font-size: 16px;
+  }
+}
+.add-comment label {
+  font-weight: 500;
+}
+.add-comment input,
+.add-comment textarea {
+  font-size: 13px;
+  font-weight: normal;
+  border: 1px solid #bfbfbf;
+  border-radius: 3px;
+}
+@media only screen and (min-width: 768px) {
+  .add-comment input,
+  .add-comment textarea {
+    font-size: 15px;
+  }
+}
+.add-comment button {
+  /* Hux learn from
+     *     TypeIsBeautiful,
+     *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
+     */
+  font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  line-height: 1.7;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 0;
+}
+@media only screen and (min-width: 768px) {
+  .add-comment button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 20px;
+  }
+}
+.add-comment button:hover,
+.add-comment button:focus {
+  color: whitesmoke;
+  background-color: #0085a1;
+  border: 1px solid #0085a1;
+}
+.add-comment button:hover > span,
+.add-comment button:focus > span {
+  color: #fff;
+}
+.add-comment-container {
+  margin-top: 30px;
+}
+.add-comment-notice {
+  font-size: 12px;
+  color: #808080;
+}
+@media only screen and (min-width: 768px) {
+  .add-comment-notice {
+    font-size: 13px;
+  }
+}
+.add-comment-email {
+  float: right;
+}
+.add-comment-email input {
+  width: 270px;
+}
+.add-comment-content {
+  margin-top: 5px;
+  width: 100%;
+}
+.add-comment-content textarea {
+  width: 100%;
 }

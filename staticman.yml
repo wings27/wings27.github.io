@@ -12,7 +12,7 @@ comments:
   branch: "master"
 
   # Text to use as the commit message or pull request title. Accepts placeholders.
-  commitMessage: "Add Staticman comments data"
+  commitMessage: "New comments"
 
   # (*) REQUIRED
   #
@@ -69,5 +69,5 @@ comments:
 
   # List of transformations to apply to any of the fields supplied. Keys are
   # the name of the field and values are possible transformation types.
-  transforms:
-    email: md5
+  # transforms:
+  #   email: md5
