@@ -33,9 +33,9 @@
         <form method="POST" action=" https://dev.staticman.net/v3/entry/github/wings27/wings27.github.io/master/comments">
             <input name="options[redirect]" type="hidden" value="{{site.url}}{{page.url}}#comments">
             <input name="options[slug]" type="hidden" value="{{ page_slug }}">
-            <label class="add-comment add-comment-author">Name: <input name="fields[name]" type="text" required placeholder="Your Name"></label>
-            <label class="add-comment add-comment-email">Email: <input name="fields[email]" type="email" required placeholder="email@domain.com"></label>
-            <label class="add-comment add-comment-content">Comment:<textarea name="fields[message]" rows="3"></textarea></label>
+            <label class="add-comment add-comment-author">Name:<input name="fields[name]" type="text" required placeholder="Your Name"></label>
+            <label class="add-comment add-comment-email">Email:<input name="fields[email]" type="email" required placeholder="email@domain.com"></label>
+            <label class="add-comment add-comment-content"><div>Comment:</div><textarea name="fields[message]" rows="3" placeholder="Markdown supported :)"></textarea></label>
             <button type="submit">Go!</button>
         </form>
     </div>
