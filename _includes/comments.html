@@ -9,7 +9,7 @@
     <article class="">
         <header class="comment comment-header">
             <span class="comment comment-author" id="{{comment._id}}">
-                <a href="mailto://{{ comment.email | strip_html }}" title="{{ comment.name | strip_html }}" target="_blank">{{ comment.name | strip_html }}</a></span>
+                <a href="mailto:{{ comment.email | strip_html }}" title="{{ comment.name | strip_html }}" target="_blank">{{ comment.name | strip_html }}</a></span>
             <span class="comment comment-created-at">
                 <time datetime="{{ comment.date | date: "%Y-%m-%d %H:%M" }}">
                     <span class="comment-date">{{ comment.date | date: "%Y-%m-%d" }}</span>
