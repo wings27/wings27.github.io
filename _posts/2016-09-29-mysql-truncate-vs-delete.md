@@ -8,7 +8,6 @@ header-img: "img/tag-bg.jpg"
 license:    true
 tags:
     - MySQL
-    - database
 ---
 
 ## 目录
