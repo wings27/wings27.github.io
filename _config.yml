@@ -21,7 +21,7 @@ zhihu_username:     wings27
 # Build settings
 highlighter: rouge
 permalink: pretty
-paginate: 10
+paginate: 15
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","*.sh","*.enc"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -74,7 +74,7 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "Zhihu",
-        href: "http://www.zhihu.com"
-    }
+        title: "Stack Overflow",
+        href: "https://stackoverflow.com/users/1294704/wings"
+    },
 ]

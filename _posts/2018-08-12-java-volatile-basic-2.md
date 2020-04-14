@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "理解volatile的三重境界（一）"
-subtitle:   "Java中volatile的基本作用和原理"
-date:		2018-08-12 12:00
+title:      "理解volatile的三重境界（二）"
+subtitle:   "Java中volatile的底层原理"
+date:		2018-08-12 22:00
 author:     "wings27"
 header-img: "img/post-bg-java.png"
 license:    true
@@ -18,9 +18,9 @@ tags:
 
 理解volatile的三重境界：
 
-第一重境界：（本篇），理解`volatile`的基本作用
-第二重境界：（本篇），理解`volatile`背后的底层原理
-第三重境界：（下一篇），理解happens-before语义和synchronize-with语义，掌握Java的线程模型和锁机制
+- 第一重境界：理解`volatile`的基本作用
+- 第二重境界：（本篇），理解`volatile`背后的底层原理
+- 第三重境界：理解happens-before语义和synchronize-with语义，掌握Java的线程模型和锁机制
 
 ## 目录
 {:.no_toc}
@@ -29,22 +29,11 @@ tags:
 {:toc}
 
 
-## volatile的基本作用
-
-很多技术博客和“面试宝典”一类的书中都提到过，Java的`volatile`关键字主要有如下几个作用。
-
-1. 保证long和double等64位的数据类型在操作时的原子性
-2. 消除寄存器缓存，保证volatile变量的读写在线程间的可见性
-3. 保证volatile变量声明和相关操作的语句不会受指令重排优化的影响
-
-对于完全不了解volatile原理的同学，以上内容请**熟读并背诵全文**。
-
-
-## volatile基本作用的底层原理
+## volatile底层原理
 
 ### 作用1：保证64位操作的原子性
 
-首先，详细解释上面提到的：
+首先，详细解释之前提到的：
 
 > 保证long和double等64位的数据类型在操作时的原子性
 
@@ -77,6 +66,8 @@ tags:
 
 ### 作用2：消除缓存
 
+volatile的另一个作用，是消除线程工作内存[^2]*（working memory，一个JMM的抽象概念，实际可能包含各级缓存、寄存器等）*的缓存值，直接使用共享内存*（又称主存）*中的值。
+
 如下代码为例：
 
 ```java
@@ -88,7 +79,7 @@ while (!this.done)
 
 这可能导致底层执行上述代码时，只读取一次`this.done`的值，之后就只从寄存器缓存中读取。
 
-哪怕另一个线程修改了`this.done`的值，当前线程也会一直陷入循环。[^2]
+哪怕另一个线程修改了`this.done`的值，当前线程也会一直陷入循环。[^3]
 
 如果对`this.done`声明时标记`volatile`，则可以消除这个影响，保证另一线程修改后，当前线程能够读取到修改后的值。
 
@@ -112,15 +103,25 @@ while (!this.done)
 
 如果想要`r2 == 2`，4必须先于1执行，同时由于3先于4并且1先于2，所以3一定先于2执行，这样r1就不能是1.
 
-但是我们多次尝试就可能得到`r1 == 1, r2 == 2`的结果。原因是根据Java规范，编译器可以对指令进行重排序，只要重排序不影响当前线程的独立运行结果即可[^3]。这个例子中，单拿出一个线程看，指令的顺序对于自己这个线程确实没有影响。因此考虑指令重排，1与2的执行顺序、3与4的执行顺序都是不确定的。
+但是我们多次尝试就可能得到`r1 == 1, r2 == 2`的结果。原因是根据Java规范，编译器可以对指令进行重排序，只要重排序不影响当前线程的独立运行结果即可[^4]。这个例子中，单拿出一个线程看，指令的顺序对于自己这个线程确实没有影响。因此考虑指令重排，1与2的执行顺序、3与4的执行顺序都是不确定的。
 
 > ... compilers are allowed to reorder the instructions in either thread, when this does not affect the execution of that thread in isolation.
 
 如果对A标记volatile，则可以消除重排序，进而不会再出现`r1 == 1, r2 == 2`的结果。
 
 
+当然，以上对volatile的描述仅限初学Java理解和记忆，多见于国内“从入门到精通系列”。
+
+实际上述描述并不全面，个别情况下为了方便理解甚至描述都不准确。
+
+想要真正理解volatile底层原理，以及Java内存模型（JMM）的设计思路，需要结合Java语言标准（Java Language Specification）加深理解。
+
+国内涉及JLS的相关资料比较少，如果有兴趣，请看下一篇。
+
+
 ### 参考文献
 
-[^1]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7
-[^2]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.3
-[^3]: https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4-A
+[^1]: [Java Language Specification 17.7](https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.7)
+[^2]: [Synchronization and the Java Memory Model, by Doug Lea](http://gee.cs.oswego.edu/dl/cpj/jmm.html)
+[^3]: [Java Language Specification 17.3](https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.3)
+[^4]: [Java Language Specification 17.4-A](https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4-A)
